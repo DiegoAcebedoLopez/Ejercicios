@@ -115,7 +115,7 @@ public class AppPerrera {
 		System.out.println("Quieres cambiar si esta vacunado o no?" + " \nAhora mismo esta en: " + vacunaPerro);
 		respuestaModificar = sc.nextLine();
 		if (respuestaModificar.equalsIgnoreCase("Si")) {
-			System.out.println("Introduce true si esta vacunado y false si no lo esta");
+			System.out.println("Introduce true si esta vacunado y false si no lo esta:");
 			vacunaPerroNuevo = sc.nextBoolean();
 			lista.get(opcionModificar - 1).setVacunado(vacunaPerroNuevo);
 		}
@@ -193,7 +193,10 @@ public class AppPerrera {
 		
 		for (Perro perro : lista) {
 			//TODO dar formato para mostrar solo nombre y raza
-			System.out.println(perro);
+			//System.out.println(perro);
+			System.out.println("-----------------------------------------------------------------------------");
+			System.out.println("Perro: " + perro.getNombre() + " \nRaza: " + perro.getRaza() + " \nPeso: " + perro.getPeso() + " \nVacuna:" + perro.isVacunado() + " \nHistoria:" + perro.getHistoria());
+			System.out.println("-----------------------------------------------------------------------------");
 		}
 		
 	}
