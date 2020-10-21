@@ -39,9 +39,13 @@ public class AppPerrera {
 			case "3":
 				darBajaPerro();
 				break;
+			case "4":
+				modificarPerro();
+				break;
 			case "S":
 				cerrarPrograma();
 			default:
+				System.out.println("Opcion incorrecta, escriba la opcion de nuevo");
 				break;
 				
 			}
@@ -55,6 +59,79 @@ public class AppPerrera {
 		
 			
 		
+	private static void modificarPerro() {
+		
+		String nombrePerro = "";
+		String nombrePerroNuevo = "";
+		String razaPerro = "";
+		String razaPerroNuevo = "";
+		Float pesoPerro = 0f;
+		Float pesoPerroNuevo = 0f;
+		boolean vacunaPerro = true;
+		boolean vacunaPerroNuevo = true;
+		String historiaPerro = "";
+		String historiaPerroNuevo = "";
+		String respuestaModificar = "";
+		int contador = 1;
+		System.out.println("Seleccione el perro que quiere modificar sus datos");
+
+		for (int i = 0; i < lista.size(); i++) {
+
+			Perro p = lista.get(i);
+
+			System.out.println(contador + "- " + p.getNombre());
+
+			contador++;
+		}
+		int opcionModificar = sc.nextInt();
+		sc.nextLine();
+		System.out.println(lista.get(opcionModificar - 1));
+		nombrePerro = lista.get(opcionModificar - 1).getNombre();
+		System.out.println("Quieres cambiar el nombre " + nombrePerro + "?");
+		respuestaModificar = sc.nextLine();
+		if (respuestaModificar.equalsIgnoreCase("Si")) {
+			System.out.println("Introduce nombre nuevo");
+			nombrePerroNuevo = sc.nextLine();
+			lista.get(opcionModificar - 1).setNombre(nombrePerroNuevo);
+		}
+		razaPerro = lista.get(opcionModificar - 1).getRaza();
+		System.out.println("Quieres cambiar la raza " + razaPerro + "?");
+		respuestaModificar = sc.nextLine();
+		if (respuestaModificar.equalsIgnoreCase("Si")) {
+			System.out.println("Introduce raza nueva");
+			razaPerroNuevo = sc.nextLine();
+			lista.get(opcionModificar - 1).setRaza(razaPerroNuevo);
+		}
+		pesoPerro = lista.get(opcionModificar - 1).getPeso();
+		System.out.println("Quieres cambiar el peso " + pesoPerro + "?");
+		respuestaModificar = sc.nextLine();
+		if (respuestaModificar.equalsIgnoreCase("Si")) {
+			System.out.println("Introduce peso nuevo");
+			pesoPerroNuevo = sc.nextFloat();
+			lista.get(opcionModificar - 1).setPeso(pesoPerroNuevo);
+		}
+		sc.nextLine();
+		vacunaPerro = lista.get(opcionModificar - 1).isVacunado();
+		System.out.println("Quieres cambiar si esta vacunado o no?" + " \nAhora mismo esta en: " + vacunaPerro);
+		respuestaModificar = sc.nextLine();
+		if (respuestaModificar.equalsIgnoreCase("Si")) {
+			System.out.println("Introduce true si esta vacunado y false si no lo esta");
+			vacunaPerroNuevo = sc.nextBoolean();
+			lista.get(opcionModificar - 1).setVacunado(vacunaPerroNuevo);
+		}
+		sc.nextLine();
+		historiaPerro = lista.get(opcionModificar - 1).getHistoria();
+		System.out.println("Quieres cambiar la historia de el perro? " +  " \n La historia actual es: " + historiaPerro );
+		respuestaModificar = sc.nextLine();
+		if (respuestaModificar.equalsIgnoreCase("Si")) {
+			System.out.println("Introduce historia nueva");
+			historiaPerroNuevo = sc.nextLine();
+			lista.get(opcionModificar - 1).setHistoria(historiaPerroNuevo);
+		}
+	}
+
+
+
 	private static void darBajaPerro() {
 		
 		int contador = 1;
@@ -149,7 +226,7 @@ public class AppPerrera {
 		System.out.println(" 1.- Listar todos los perros");
 		System.out.println(" 2.- Crear un perro");
 		System.out.println(" 3.- Dar de baja un Perro");
-		System.out.println(" etc etc ...");
+		System.out.println(" 4.- Modificar un perro");
 		System.out.println(" ");
 		System.out.println(" S - Salir");
 		System.out.println("************************************");
